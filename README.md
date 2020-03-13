@@ -18,7 +18,7 @@ This project is being created with the intention of practing spec creation, redg
 | 1. Splash page is presented | Pierre opens his application | *Vendors and Orders Main Page* displays |
 | 2. Pierre can navigate to *vendor list* page (from any page) | Pierre clicks on *Vendor List* link | *Vendor Page* displays, with a message that says "no current vendors" |
 | 3. Pierre can navigate to *new vendor* page (from any page) | Pierre clicks on *New Vendor* link | *Vendor form* displays |
-| 4. Pierre can submit new vendor form | Pierre fills form, presses submit | form info, such as *Vendor name, description, **list of orders*** is created |
+| 4. Pierre can submit new vendor form | Pierre fills form, presses submit | form info, such as *Vendor name, description* is created |
 | 5. Vendor list apears after form submit | Pierre fills form, presses submit | next page displays, including the new *Vendor's name* he had filled out in the form |
 | 6. Individual Vendors are clickable | Pierre is on Vendor page, clicks on Vendor's Name | That individual Vendor's page displays, including the individual Vendor's name and description and List of orders |
 | 7. Pierre can add Orders to Vendors that already exist | Pierre is on *specific* Vendor page, clicks on *[add order] button* | Form displays with ability to take in specific order's and add them to the list of Orders for that particular Vendor |
