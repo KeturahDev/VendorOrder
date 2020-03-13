@@ -16,22 +16,13 @@ This project is being created with the intention of practing spec creation, redg
 | Specification | Example Input | Example Output |
 | :------------- |:-------------| :-------------------|
 | 1. Splash page is presented | Pierre opens his application | *Vendors and Orders Main Page* displays |
-| 1. Pierre can navigate to *vendor list* page (from any page) | Pierre clicks on *Vendor List* link | *Vendor Page* displays, with a message that says "no current vendors" |
-| 1. Pierre can navigate to *new vendor* page (from any page) | Pierre clicks on *New Vendor* link | *Vendor form* displays |
-| 1. Pierre can submit new vendor form | Pierre fills form, presses submit | form info, such as *Vendor name, description, **list of orders*** is created |
-| 1. Vendor list apears after form submit | Pierre fills form, presses submit | next page displays, including the new *Vendor's name* he had filled out in the form |
-| 1. Individual Vendors are clickable | Pierre is on Vendor page, clicks on Vendor's Name | That individual Vendor's page displays, including the individual Vendor's name and description and List of orders |
-| 1. Pierre can add Orders to Vendors that already exist | Pierre is on *specific* Vendor page, clicks on *[add order] button* | Form displays with ability to take in specific order's and add them to the list of Orders for that particular Vendor |
-
-
-
-#### Elaborating descriptions for specs by number:
-1. program needs to take into account the word the user wants to have checked. Input is one word. Output is information retained.
-2. Program needs to recieve the sentence to check from. Input is sentence. Output is information retained.
-3. Program needs to only check for whole word true comparisons, not just matching combinations of letters in a bigger word. Input is the sentence string (going into a method), which returns a list.
-4. Program needs to be able to compare that sentence to word: Input is the list (returned from a method) into a counting method. Output is the number of repetitions, set to a property.
-5. User Interface Based specfication: input is strings, output is interger transformed to readable string- all in Program.cs 
-6. Elaboration spec to prepare for specification #3. Input is the sentence string, output is a new sentence string.
+| 2. Pierre can navigate to *vendor list* page (from any page) | Pierre clicks on *Vendor List* link | *Vendor Page* displays, with a message that says "no current vendors" |
+| 3. Pierre can navigate to *new vendor* page (from any page) | Pierre clicks on *New Vendor* link | *Vendor form* displays |
+| 4. Pierre can submit new vendor form | Pierre fills form, presses submit | form info, such as *Vendor name, description, **list of orders*** is created |
+| 5. Vendor list apears after form submit | Pierre fills form, presses submit | next page displays, including the new *Vendor's name* he had filled out in the form |
+| 6. Individual Vendors are clickable | Pierre is on Vendor page, clicks on Vendor's Name | That individual Vendor's page displays, including the individual Vendor's name and description and List of orders |
+| 7. Pierre can add Orders to Vendors that already exist | Pierre is on *specific* Vendor page, clicks on *[add order] button* | Form displays with ability to take in specific order's and add them to the list of Orders for that particular Vendor |
+ 
 
 
 ## Setup/Installation Requirements
