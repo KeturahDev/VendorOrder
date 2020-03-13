@@ -35,5 +35,20 @@ namespace VendorOrder.Tests
 
       Assert.AreEqual(1, vendorQuantity);
     }
+    [TestMethod]
+    public void Find_ReturnSpecificVendorById_Vendor()
+    {
+      string name = "BananaBakery";
+      string description = "Pierre's first Vendor";
+      Vendor firstVendor = new Vendor(name, description);
+      string name2 = "MarkoFellows";
+      string description2 = "muffins made by Pierre's friend Marko";
+      Vendor secondVendor = new Vendor(name2, description2);
+
+      Vendor result = Vendor.Find(2);
+      // Console.WriteLine("result type" + Vendor.Find(2).GetType());
+
+      Assert.AreEqual(firstVendor.Id, result.Id);
+    }
   }
 }
