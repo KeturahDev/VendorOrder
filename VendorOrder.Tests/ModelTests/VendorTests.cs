@@ -18,5 +18,16 @@ namespace VendorOrder.Tests
 
       Assert.AreEqual(typeof(Vendor), result.GetType());
     }
+    [TestMethod]
+    public void Count_CountNumberOfInstancesOfVendor_int()
+    {
+      string name = "BananaBakery";
+      string description = "Pierre's first Vendor";
+      Vendor firstVendor = new Vendor(name, description);
+
+      int vendorQuantity = Vendor.Instances.Count;
+
+      Assert.AreEqual(1, vendorQuantity);
+    }
   }
 }
