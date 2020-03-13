@@ -12,5 +12,9 @@ namespace VendorOrder.Models
       Description = description;
       Instances.Add(this);
     }
+    public static void ClearAll()
+    {
+      Instances.Clear();
+    }
   }
 }

@@ -1,12 +1,18 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using VendorOrder.Models;
+using System;
 
 namespace VendorOrder.Tests
 {
   [TestClass]
-  public class VendorTest
+  public class VendorTest : IDisposable
   {
+    public void Dispose()
+    {
+      Vendor.ClearAll();
+    }
+
     [TestMethod]
     public void ConstructVendor_CreateInstanceOfVendor_Vendor()
     {
