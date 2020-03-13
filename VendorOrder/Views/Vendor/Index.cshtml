@@ -1,4 +1,18 @@
+@using VendorOrder.Models;
 @{ Layout ="_Layout"; }
 
 <h1>Vendor List</h1>
-<p>Where you will see a message saying either "no vendors yet" or the lists of vendors</p>
+<!-- <p>Where you will see a message saying either "no vendors yet" or the lists of vendors</p> -->
+
+
+  @if (@Model.Count == 0)
+  {
+    <p>there are currently no vendors</p>
+  }
+  else 
+  {
+    @foreach(Vendor vendor in Model)
+    {
+      <h3>@vendor.Name</h3>
+    }
+  }
