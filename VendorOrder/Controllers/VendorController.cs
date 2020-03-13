@@ -22,12 +22,15 @@ namespace VendorOrder.Controllers
       Vendor newVendor = new Vendor(vendName, description);
       return RedirectToAction("Index");
     }
-    
+
     [HttpGet("/vendors/{Id}")]
     public ActionResult Show(int Id)
     {
       Vendor chosenVendor = Vendor.Find(Id);
       return View(chosenVendor);
     }
+    
+    [HttpGet("/vendor/@vendor.Id/orders/new")]
+    public ActionResult New() {return View();}
   }
 }
