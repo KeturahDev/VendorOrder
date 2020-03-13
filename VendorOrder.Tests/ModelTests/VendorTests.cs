@@ -48,7 +48,7 @@ namespace VendorOrder.Tests
       Vendor result = Vendor.Find(2);
       // Console.WriteLine("result type" + Vendor.Find(2).GetType());
 
-      Assert.AreEqual(firstVendor.Id, result.Id);
+      Assert.AreEqual(secondVendor.Id, result.Id);
     }
   }
 }
