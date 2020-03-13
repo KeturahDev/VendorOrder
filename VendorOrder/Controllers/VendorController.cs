@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using VendorOrder.Models;
+using System;
 
 namespace VendorOrder.Controllers
 {
@@ -26,15 +27,19 @@ namespace VendorOrder.Controllers
     [HttpGet("/vendors/{Id}")]
     public ActionResult Show(int Id)
     {
+      Console.WriteLine("touched show");
       Vendor chosenVendor = Vendor.Find(Id);
       return View(chosenVendor);
     }
 
-    [HttpGet("/vendors/{Id}/edit")]
-    public ActionResult Edit(int Id, Order order)
+    [HttpPost("/vendors/{Id}")]
+    public ActionResult Update(Dictionary<string, object> model)
     {
+      Console.WriteLine("in Update");
+      int Id = (int) model["Id"];
+      Order theOrder = (Order) model["newOrder"];
       Vendor thisVendor = Vendor.Find(Id);
-      thisVendor.AddOrder(order);
+      thisVendor.AddOrder(theOrder);
       return RedirectToAction("Show", Id);
     }
   }
