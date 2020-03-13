@@ -12,6 +12,7 @@ namespace VendorOrder.Controllers
       List<Vendor> vendorList = Vendor.Instances;
       return View(vendorList);
     }
+
     [HttpGet("/vendors/new")]
     public ActionResult New() {return View();}
 
@@ -20,6 +21,13 @@ namespace VendorOrder.Controllers
     {
       Vendor newVendor = new Vendor(vendName, description);
       return RedirectToAction("Index");
+    }
+    
+    [HttpGet("/vendors/{Id}")]
+    public ActionResult Show(int Id)
+    {
+      Vendor chosenVendor = Vendor.Find(Id);
+      return View(chosenVendor);
     }
   }
 }
