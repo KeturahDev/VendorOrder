@@ -50,5 +50,24 @@ namespace VendorOrder.Tests
 
       Assert.AreEqual(secondVendor.Id, result.Id);
     }
+    [TestMethod]
+    public void AddOrderList_VendorsHaveOrderListsTheyCanAddTo_List()
+    {
+      string name = "BananaBakery";
+      string description = "Pierre's first Vendor";
+      Vendor firstVendor = new Vendor(name, description);
+      string title = "Muffin";
+      string description1 = "like a cupcake but not";
+      int price = 3;
+      string date = "3/31/2020";
+      string ingredients = "flour milk eggs sugar";
+      Order newOrder = new Order(title, description1, price, date, ingredients);
+
+      firstVendor.AddOrder(newOrder);
+      List<Order> vendorsList = firstVendor.OrderList;
+      
+
+      Assert.AreEqual(newOrder.Title, vendorsList[0].Title);
+    }
   }
 }
