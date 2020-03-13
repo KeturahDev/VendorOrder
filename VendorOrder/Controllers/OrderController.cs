@@ -13,10 +13,13 @@ namespace VendorOrder.Controllers
       return View(currentVendor);
     }
     [HttpPost("/vendors/{Id}/orders")]
-    public ActionResult Create(string title, string description, int price, string date, string ingredients)
+    public ActionResult Create(string title, string description, int price, string date, string ingredients, int Id)
     {
+      int thisId = Id;
       Order newOrder = new Order(title, description, price, date, ingredients);
-      return RedirectToAction("Edit", newOrder);
+      return RedirectToAction("edit", "vendors/1", newOrder);
     }
+    
+    
   }
 }

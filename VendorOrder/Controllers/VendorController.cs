@@ -30,7 +30,12 @@ namespace VendorOrder.Controllers
       return View(chosenVendor);
     }
 
-    
-    
+    [HttpGet("/vendors/{Id}/edit")]
+    public ActionResult Edit(int Id, Order order)
+    {
+      Vendor thisVendor = Vendor.Find(Id);
+      thisVendor.AddOrder(order);
+      return RedirectToAction("Show", Id);
+    }
   }
 }
