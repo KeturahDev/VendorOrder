@@ -25,7 +25,7 @@ namespace VendorOrder.Models
     }
     public void AddOrder(Order order)
     {
-      // OrderList.Add(order);
+      OrderList.Add(order);
     }
   }
 }
