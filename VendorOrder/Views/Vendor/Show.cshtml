@@ -13,7 +13,11 @@
 }
 @foreach(Order order in Model.OrderList)
 {
-  <p>Order: @order.Title</p>
+  <h4>Order: @order.Title</h4>
+  <p>Order's description: @order.Description</p>
+  <p>Price: @order.Price</p>
+  <p>Date: @order.Date</p>
+  <p>Ingredients: @order.Ingredients</p>
 }
 
 <button><a href="/vendors/@Model.Id/orders/new">Add new Menu Item</a></button>
