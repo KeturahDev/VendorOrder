@@ -2,8 +2,9 @@
 @using VendorOrder.Models;
 
 <h1>Vendor: @Model.Name</h1>
-<p>Vendor Description:</p>
-<p>@Model.Description</p>
+<p>Vendor Description:  <span>@Model.Description</span></p> 
+
+<p>Orders: <span>@Model.OrderList.Count</span></p>
 
 @if(Model.OrderList.Count <= 0)
 {

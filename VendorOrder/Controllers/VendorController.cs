@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using VendorOrder.Models;
 using System;
 
+// comments mark the intention of each route, and the flow of information from one rout to another
+
 namespace VendorOrder.Controllers
 {
   public class VendorController : Controller
   {
+    //list of vendors page | #shows vendors | "there are no vendors"
     [HttpGet("/vendors")]
     public ActionResult Index()
     {
@@ -14,9 +17,11 @@ namespace VendorOrder.Controllers
       return View(vendorList);
     }
 
+    //New Vendor FORM | SUBMIT GOES TO POST(/VENDORS)
     [HttpGet("/vendors/new")]
     public ActionResult New() {return View();}
 
+    //Creation of Vendor | GOES TO INDEX
     [HttpPost("/vendors")]
     public ActionResult Create(string vendName, string description)
     {
@@ -24,73 +29,64 @@ namespace VendorOrder.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpGet("/vendors/{Id}")]
-    public ActionResult Show(int Id)
+    //Goes specific dynamic page | *description* + no orders | *description* + orders 
+    [HttpGet("/vendors/{Id}")] 
+    public ActionResult Show(int Id, Dictionary<string, object> model)
     {
-      Console.WriteLine("touched show");
+      Console.WriteLine("in Show");
+
+      //------------code from UPDATE --------- 
+      // newOrder form is skipping update and going straght here
+      
+      // int Id = (int) model["Id"];
+      // Order theOrder = (Order) model["Order"];
+      // Vendor thisVendor = Vendor.Find(Id);
+      // thisVendor.AddOrder(theOrder);
+      //---------------------------------------
+
+      //-----------old code------------------
+      Console.WriteLine("touched show"); 
       Vendor chosenVendor = Vendor.Find(Id);
       return View(chosenVendor);
     }
 
-    [HttpPost("/vendors/{Id}")]
-    public ActionResult Update(Dictionary<string, object> model)
-    {
-      Console.WriteLine("in Update");
-      int Id = (int) model["Id"];
-      Order theOrder = (Order) model["newOrder"];
-      Vendor thisVendor = Vendor.Find(Id);
-      thisVendor.AddOrder(theOrder);
-      return RedirectToAction("Show", Id);
-    
-    }
+    // attempting to update. Inaccessable at the moment - is it because of going from CreateOrder POST to UpdateVendor POST?
+    //moving functionality from this rouch into CreateOrder route
 
-      [HttpGet("/vendors/{Id}/orders/new")]
+    // [HttpPost("/vendors/{Id}")]
+    // public ActionResult UpdateVendor(Dictionary<string, object> model)
+    // {
+    //   Console.WriteLine("in Update");
+    //   int Id = (int) model["Id"];
+    //   Order theOrder = (Order) model["Order"];
+    //   Vendor thisVendor = Vendor.Find(Id);
+    //   thisVendor.AddOrder(theOrder);
+    //   return RedirectToAction("Show", Id);
+    // }
+
+    // Takes to OrderForm for {Id} specific Vendor {accessed through button on show page}
+    [HttpGet("/vendors/{Id}/orders/new")]
     public ActionResult NewOrder( int Id) 
     {
       Vendor currentVendor = Vendor.Find(Id);
       return View(currentVendor);
     }
+    
+    // the create for Order | supposed to take information to Update - X | to 
+    //to make project work, will do Updates functionality inside of CreateOrder
     [HttpPost("/vendors/{Id}/orders")]
-    public ActionResult Create(string title, string description, int price, string date, string ingredients, int Id)
+    public ActionResult CreateOrder(string title, string description, int price, string date, string ingredients, int Id)
     {
-      Dictionary<string, object> model = new Dictionary<string, object>();
-      int thisId = Id;
-      Console.WriteLine("Id" + Id);
+      // Dictionary<string, object> model = new Dictionary<string, object>();    
+      Console.WriteLine("Entered Create Order");
+      Console.WriteLine("Order title:" + title);
       Order newOrder = new Order(title, description, price, date, ingredients);
-      model.Add("Id" ,Id);
-      model.Add("Order" ,newOrder);
-      return RedirectToAction("Update", model); 
+      Vendor thisVendor = Vendor.Find(Id);
+      thisVendor.AddOrder(newOrder);
+      // model.Add("Id" ,Id);
+      // model.Add("Order" ,newOrder);
+      return RedirectToAction("Show"); 
     }
   }
 }
 
-// using Microsoft.AspNetCore.Mvc;
-// using System.Collections.Generic;
-// using VendorOrder.Models;
-// using System;
-
-// namespace VendorOrder.Controllers
-// {
-//   public class OrderController : Controller
-//   {
-//     [HttpGet("/vendors/{Id}/orders/new")]
-//     public ActionResult New( int Id) 
-//     {
-//       Vendor currentVendor = Vendor.Find(Id);
-//       return View(currentVendor);
-//     }
-//     [HttpPost("/vendors/{Id}/orders")]
-//     public ActionResult Create(string title, string description, int price, string date, string ingredients, int Id)
-//     {
-//       Dictionary<string, object> model = new Dictionary<string, object>();
-//       int thisId = Id;
-//       Console.WriteLine("Id" + Id);
-//       Order newOrder = new Order(title, description, price, date, ingredients);
-//       model.Add("Id" ,Id);
-//       model.Add("Order" ,newOrder);
-//       return RedirectToAction("update", "vendors", model); //unable to reach Update in vendorscontroller~ unsure how
-//     }
-    
-    
-//   }
-// }
