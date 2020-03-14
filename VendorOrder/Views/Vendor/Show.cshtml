@@ -5,4 +5,14 @@
 <p>Vendor Description:</p>
 <p>@Model.Description</p>
 
+@if(Model.OrderList.Count <= 0)
+{
+  <p>There are currently no orders listed under @Model.Name</p>
+  // <button><a href="/orders/new">Add Order</a></button>
+}
+@foreach(Order order in Model.OrderList)
+{
+  <p>Order: @order.Title</p>
+}
+
 <button><a href="/vendors/@Model.Id/orders/new">Add new Menu Item</a></button>
