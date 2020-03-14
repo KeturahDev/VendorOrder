@@ -6,9 +6,9 @@
 
 ## Description
 
-.
+This is an interface website for Pierre (fictional food supplier) to organize the vendors his supplies and their individual menu items.
 
-This project is being created with the intention of practing spec creation, redgreen workflow and basic MSTesting with C#.
+This project is being created with the intention of practing spec creation, redgreen workflow and basic MSTesting with C#, and MVC framework implementation.
 
 ## Specifications:
 
@@ -22,6 +22,7 @@ This project is being created with the intention of practing spec creation, redg
 | 5. Vendor list apears after form submit | Pierre fills form, presses submit | next page displays, including the new *Vendor's name* he had filled out in the form |
 | 6. Individual Vendors are clickable | Pierre is on Vendor page, clicks on Vendor's Name | That individual Vendor's page displays, including the individual Vendor's name and description and List of orders |
 | 7. Pierre can add Orders to Vendors that already exist | Pierre is on *specific* Vendor page, clicks on *[add order] button* | Form displays with ability to take in specific order's and add them to the list of Orders for that particular Vendor |
+| 8. Orders are presented when individual vendor pages are presented | Pierre is on *specific* Vendor page | Vendor description is presented, order and order details are presented |
  
 
 
@@ -53,6 +54,8 @@ This project is being created with the intention of practing spec creation, redg
 * VS Code
 * C#
 * .NET 2.2
+* ASP.NET Core MVC
+* Bootstrap 4
 
 
 ## Known Bugs
