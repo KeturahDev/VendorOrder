@@ -42,7 +42,7 @@ This project is being created with the intention of practing spec creation, redg
 
   1. Click on the *clone or download* button of this repository. You can download the project file clicking the **"Download Zip"** button, double clicking the file in downloads, and navigating to the index.html file and double clicking that. *Or*, you can copy the link that pops up when you've clicked the *clone or download* button above this README.md file...
   2. Navigate to your terminal, where you have previously installed git (if you have not done this yet, go ahead and do so now).
-  3. In terminal, change your directory to desktop, and then type **git clone https://github.com/KeturahDev/WordCount.git**.
+  3. In terminal, change your directory to desktop, and then type **git clone https://github.com/KeturahDev/VendorOrder.git**.
   4. When you've pressed enter, my project will be cloned onto your desktop, and now you can change directory into it and type **"code ."** to open the projects files in Visual Studio Code!
   5. You will now be at the root directory for this project in your chosen command promt program. Navigate to *WordCounter.Tests* directory. Enter the command **"dotnet restore"**.
   6. Now navigate back to root directory, and into *WordCount* directory, an input **dotnet run**
